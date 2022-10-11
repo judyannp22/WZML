@@ -20,16 +20,16 @@ try:
     try:
         res = rget(CONFIG_FILE_URL)
         if res.status_code == 200:
-            with open('config.env', 'wb+') as f:
+            with open('onfigytshd.env', 'wb+') as f:
                 f.write(res.content)
         else:
-            log_error(f"Failed to download config.env {res.status_code}")
+            log_error(f"Failed to download onfigytshd.env {res.status_code}")
     except Exception as e:
         log_error(f"CONFIG_FILE_URL: {e}")
 except:
     pass
 
-load_dotenv('config.env', override=True)
+load_dotenv('onfigytshd.env', override=True)
 
 UPSTREAM_REPO = environ.get('UPSTREAM_REPO')
 UPSTREAM_BRANCH = environ.get('UPSTREAM_BRANCH')
